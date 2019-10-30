@@ -98,11 +98,6 @@ class Signup extends React.Component {
         id: "corporate number2"
       },
       {
-        label: "사업자 번호",
-        type: "text",
-        id: "corporate number2"
-      },
-      {
         label: "이메일",
         type: "email",
         id: "corporate email"
