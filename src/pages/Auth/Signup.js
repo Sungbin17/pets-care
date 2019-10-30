@@ -59,7 +59,65 @@ class Signup extends React.Component {
         label: "반려동물 병력",
         type: "text",
         id: "petDisease"
+      }
+    ],
+    CorporateProfileArray: [
+      {
+        label: "아이디",
+        type: "text",
+        id: "username"
       },
+      {
+        label: "비밀번호",
+        type: "password",
+        id: "password"
+      },
+      {
+        label: "이름",
+        type: "text",
+        id: "name"
+      },
+      {
+        label: "사업자 등록번호",
+        type: "text",
+        id: "corporate registered number"
+      },
+      {
+        label: "업체번호",
+        type: "text",
+        id: "corporate number"
+      },
+      {
+        label: "업체주소",
+        type: "text",
+        id: "corporate address"
+      },
+      {
+        label: "사업자 번호",
+        type: "text",
+        id: "corporate number2"
+      },
+      {
+        label: "사업자 번호",
+        type: "text",
+        id: "corporate number2"
+      },
+      {
+        label: "이메일",
+        type: "email",
+        id: "corporate email"
+      },
+      {
+        label: "업종",
+        type: "text",
+        id: "corporate type"
+      },
+      {
+        label: "간단한 소개",
+        type: "text",
+        id: "corporate intro"
+      },
+
     ]
   };
 
@@ -172,32 +230,48 @@ class Signup extends React.Component {
             </tr>
           </table>
 
-          {this.state.userType === null ? this.selectUserType() : 
-          this.state.userType === '개인' ?
+          {this.state.userType === null ? (
+            this.selectUserType()
+          ) : this.state.userType === "개인" ? (
+            <div class="container mb-5">
+              {this.birthDateInput()}
+              {this.state.profileArray.map(item => (
+                <div className="row mt-5">
+                  <label className="col-sm-4" for={item.label}>
+                    {item.label}
+                  </label>
+                  <input
+                    className="col-sm-8"
+                    style={{ maxWidth: "50%" }}
+                    type={item.type}
+                    class="form-control"
+                    id={item.id}
+                    placeholder={item.label}
+                  />
+                </div>
+              ))}
+              <button className="btn btn-primary mt-5">가입하기</button>
+            </div>
+          ) : 
           <div class="container mb-5">
-          {this.birthDateInput()}
-            {this.state.profileArray.map(item => (
-              <div className="row mt-5">
-                <label className="col-sm-4" for={item.label}>
-                  {item.label}
-                </label>
-                <input
-                  className="col-sm-8"
-                  style={{ maxWidth: "50%" }}
-                  type={item.type}
-                  class="form-control"
-                  id={item.id}
-                  placeholder={item.label}
-                />
-              </div>
-            ))}
-            <button className='btn btn-primary mt-5'>가입하기</button>
-          </div>: null
-        
-        }
-
-
-
+              {this.state.CorporateProfileArray.map(item => (
+                <div className="row mt-5">
+                  <label className="col-sm-4" for={item.label}>
+                    {item.label}
+                  </label>
+                  <input
+                    className="col-sm-8"
+                    style={{ maxWidth: "50%" }}
+                    type={item.type}
+                    class="form-control"
+                    id={item.id}
+                    placeholder={item.label}
+                  />
+                </div>
+              ))}
+              <button className="btn btn-primary mt-5">가입하기</button>
+            </div>
+          }
         </div>
       </div>
     );
