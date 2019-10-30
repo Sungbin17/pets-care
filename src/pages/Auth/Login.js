@@ -1,5 +1,8 @@
 
 import React from 'react';
+import {
+    Link
+  } from "react-router-dom";
 
 class Login extends React.Component {
     render() {
@@ -32,7 +35,7 @@ class Login extends React.Component {
                        
                         <table align="center" height="50" class="link-table">
                             <tr>
-                                <td><a style={{textDecoration: 'none'}} href="" /> 회원가입 | </td>
+                                <td><Link  to="/signup" > 회원가입 | </Link> </td>
                                 <td><a style={{textDecoration: 'none'}} href="" /> 비밀번호분실  </td>
                             </tr>
                         </table>
